@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laptop Finder Quiz — Find Your Perfect Laptop in 60 Seconds</title>
-  <meta name="description" content="Answer 5 quick questions and get a personalized laptop recommendation matched to your budget, use case, and preferences. Free laptop finder quiz." />
-  <meta name="keywords" content="laptop finder quiz, best laptop for me, what laptop should I buy, laptop recommendation 2026" />
+  <title>Laptop Finder Quiz 2026 — Find Your Perfect Laptop in 60 Seconds</title>
+  <meta name="description" content="Answer 5 quick questions and get a personalized laptop recommendation — from budget picks to pro workstations and MacBooks. Every budget, every use case." />
+  <meta name="keywords" content="laptop finder quiz, best laptop for me, what laptop should I buy, best gaming laptop 2026, best MacBook, laptop recommendation 2026" />
   <link rel="canonical" href="https://jarv-visual.github.io/laptop-quiz/" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GA4 PLACEHOLDER — replace MEASUREMENT_ID after Google Analytics setup -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D92XNYG7CG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -42,7 +41,8 @@
     <div id="intro" class="text-center fade-in">
       <div class="text-5xl mb-4">💻</div>
       <h1 class="text-3xl font-bold text-slate-800 mb-3">Find Your Perfect Laptop</h1>
-      <p class="text-slate-500 text-lg mb-8">Answer 5 quick questions — we'll match you with the best laptop for your needs and budget.</p>
+      <p class="text-slate-500 text-lg mb-2">Answer 5 quick questions — get a personalized pick.</p>
+      <p class="text-slate-400 text-sm mb-8">Budget picks · Gaming rigs · Pro workstations · MacBooks</p>
       <button onclick="startQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-10 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all">
         Start the Quiz →
       </button>
@@ -51,7 +51,6 @@
 
     <!-- Quiz screen -->
     <div id="quiz" class="hidden fade-in">
-      <!-- Progress bar -->
       <div class="mb-8">
         <div class="flex justify-between text-sm text-slate-400 mb-2">
           <span id="progress-label">Question 1 of 5</span>
@@ -76,7 +75,7 @@
   </main>
 
   <footer class="text-center py-8 text-xs text-slate-400">
-    <p>As an Amazon Associate, we earn from qualifying purchases. <a href="article.html" class="underline hover:text-indigo-500">Laptop Buying Guide</a></p>
+    <p>As an Amazon Associate, we earn from qualifying purchases. <a href="article.html" class="underline hover:text-indigo-500">Full Laptop Buying Guide</a></p>
   </footer>
 
   <script>
@@ -86,9 +85,10 @@
         text: "What's your budget?",
         icon: '💰',
         options: [
-          { label: 'Under $450', value: 'low' },
-          { label: '$450 – $550', value: 'mid' },
-          { label: '$550 – $650', value: 'high' },
+          { label: 'Under $500 — Just the essentials', value: 'low' },
+          { label: '$500 – $900 — Solid everyday machine', value: 'mid' },
+          { label: '$900 – $1500 — Serious performance', value: 'high' },
+          { label: '$1500+ — No compromises', value: 'ultra' },
         ]
       },
       {
@@ -96,28 +96,21 @@
         text: 'What will you mainly use it for?',
         icon: '🎯',
         options: [
-          { label: '📚 School / Office work', value: 'student' },
+          { label: '📚 Everyday work — docs, web, email, Zoom', value: 'everyday' },
           { label: '🎮 Gaming', value: 'gaming' },
-          { label: '🎨 Creative work (video, design)', value: 'creative' },
-          { label: '🔄 Everything — I need flexibility', value: 'flex' },
+          { label: '🎨 Creative work — video editing, design, photo', value: 'creative' },
+          { label: '🤖 Development, AI, or heavy computing', value: 'dev' },
+          { label: '🔄 Everything — I want maximum flexibility', value: 'flex' },
         ]
       },
       {
-        id: 'screen',
-        text: 'What screen size do you prefer?',
+        id: 'os',
+        text: 'Do you have an OS preference?',
         icon: '🖥️',
         options: [
-          { label: '13–14" — Compact and portable', value: 'small' },
-          { label: '15–16" — Bigger is better', value: 'large' },
-        ]
-      },
-      {
-        id: 'battery',
-        text: 'How important is battery life?',
-        icon: '🔋',
-        options: [
-          { label: '⚡ Critical — I work away from outlets all day', value: 'high' },
-          { label: '🔌 Moderate — I usually have access to power', value: 'low' },
+          { label: '🪟 Windows — I need Windows', value: 'windows' },
+          { label: '🍎 macOS — I prefer Mac or I\'m in the Apple ecosystem', value: 'mac' },
+          { label: '🤷 No preference — show me the best option', value: 'any' },
         ]
       },
       {
@@ -125,107 +118,245 @@
         text: 'What matters most to you?',
         icon: '⭐',
         options: [
-          { label: '💵 Lowest possible price', value: 'price' },
-          { label: '⚡ Best performance', value: 'performance' },
-          { label: '🎁 Best all-round value', value: 'value' },
+          { label: '💵 Best value for money', value: 'value' },
+          { label: '⚡ Maximum performance', value: 'performance' },
+          { label: '🔋 Long battery life / portability', value: 'battery' },
+          { label: '🖼️ Best display quality', value: 'display' },
+          { label: '🏢 Build quality and reliability', value: 'build' },
+        ]
+      },
+      {
+        id: 'screen',
+        text: 'Preferred screen size?',
+        icon: '📐',
+        options: [
+          { label: '13–14" — Slim and portable', value: 'small' },
+          { label: '15–16" — More screen, still portable', value: 'large' },
+          { label: 'Size doesn\'t matter much', value: 'any' },
         ]
       }
     ];
 
     const laptops = [
-      {
-        id: 'acer_aspire5',
-        name: 'Acer Aspire 5',
-        tagline: 'Best Budget All-Rounder',
-        price: '~$449',
-        stars: '4.4 ⭐',
-        specs: ['AMD Ryzen 5 / Intel Core i5', '8GB RAM · 512GB SSD', '15.6" FHD Display', 'Windows 11'],
-        pros: ['Excellent price-to-performance', 'Reliable everyday performance', 'Good battery life'],
-        cons: ['Plastic build', 'Basic display quality'],
-        badge: '🏆 Best Value',
-        color: 'indigo',
-        link: 'https://www.amazon.com/acer-Hexa-Core-Processor-Graphics-A515-48M-R3DF/dp/B0BXLY1F8T?tag=laptopquiz0-20',
-        match: (a) => a.budget === 'low' && a.use === 'student'
-      },
+      // --- BUDGET TIER ---
       {
         id: 'lenovo_ideapad3',
         name: 'Lenovo IdeaPad 3',
         tagline: 'Lightest on Your Wallet',
         price: '~$399',
+        priceNum: 399,
         stars: '4.3 ⭐',
         specs: ['AMD Ryzen 3 / Intel Core i3', '8GB RAM · 256GB SSD', '15.6" FHD Display', 'Windows 11'],
-        pros: ['Lowest price in class', 'Lenovo build quality', 'Windows 11 Pro available'],
-        cons: ['Limited storage', 'Basic performance'],
+        pros: ['Lowest price in class', 'Lenovo reliability', 'Decent everyday performance'],
+        cons: ['Limited storage', 'Basic display'],
         badge: '💸 Most Affordable',
         color: 'green',
+        os: 'windows',
+        tier: 'low',
         link: 'https://www.amazon.com/Lenovo-Touchscreen-i3-1115G4-Processor-Bluetooth/dp/B09V273F3C?tag=laptopquiz0-20',
-        match: (a) => a.budget === 'low' && a.priority === 'price'
+        match: (a) => a.budget === 'low' && a.os !== 'mac' && a.priority === 'value'
+      },
+      {
+        id: 'acer_aspire5',
+        name: 'Acer Aspire 5',
+        tagline: 'Best Budget All-Rounder',
+        price: '~$449',
+        priceNum: 449,
+        stars: '4.4 ⭐',
+        specs: ['AMD Ryzen 5 / Intel Core i5', '8GB RAM · 512GB SSD', '15.6" FHD Display', 'Windows 11'],
+        pros: ['Excellent price-to-performance', 'Reliable everyday use', 'Good battery life'],
+        cons: ['Plastic build', 'Average display'],
+        badge: '🏆 Best Budget Value',
+        color: 'indigo',
+        os: 'windows',
+        tier: 'low',
+        link: 'https://www.amazon.com/acer-Hexa-Core-Processor-Graphics-A515-48M-R3DF/dp/B0BXLY1F8T?tag=laptopquiz0-20',
+        match: (a) => a.budget === 'low' && a.os !== 'mac' && a.use === 'everyday'
       },
       {
         id: 'asus_vivobook16',
         name: 'ASUS VivoBook 16',
-        tagline: 'Everyday Productivity Champion',
+        tagline: 'Biggest Screen for the Price',
         price: '~$499',
+        priceNum: 499,
         stars: '4.5 ⭐',
         specs: ['AMD Ryzen 5 7520U', '8GB RAM · 512GB SSD', '16" FHD Display', 'Windows 11'],
-        pros: ['Largest screen in this range', 'Fast Ryzen performance', 'Lightweight for size'],
-        cons: ['Battery could be better', 'No dedicated GPU'],
-        badge: '📐 Best Screen',
+        pros: ['Largest screen in budget tier', 'Fast Ryzen CPU', 'Lightweight for its size'],
+        cons: ['Average battery', 'No dedicated GPU'],
+        badge: '📐 Best Screen (Budget)',
         color: 'purple',
+        os: 'windows',
+        tier: 'low',
         link: 'https://www.amazon.com/ASUS-VivoBook-Laptop-WUXGA-1920/dp/B0BT753MW1?tag=laptopquiz0-20',
-        match: (a) => a.screen === 'large' && a.use !== 'gaming'
+        match: (a) => a.budget === 'low' && a.os !== 'mac' && a.screen === 'large'
       },
+      // --- MID TIER ---
       {
         id: 'dell_inspiron15',
         name: 'Dell Inspiron 15',
         tagline: 'The Trusted Workhorse',
         price: '~$549',
+        priceNum: 549,
         stars: '4.4 ⭐',
         specs: ['Intel Core i5-1335U', '8GB RAM · 512GB SSD', '15.6" FHD IPS', 'Windows 11'],
         pros: ['Premium IPS display', 'Solid Dell build quality', 'Great for business/work'],
         cons: ['Slightly heavier', 'Mid-tier graphics'],
-        badge: '💼 Best for Work',
+        badge: '💼 Best Mid-Range Work',
         color: 'blue',
+        os: 'windows',
+        tier: 'mid',
         link: 'https://www.amazon.com/Dell-Inspiron-Touchscreen-Anti-Glare-i5-1335U/dp/B0CY3CDVGL?tag=laptopquiz0-20',
-        match: (a) => a.budget === 'mid' && (a.use === 'student' || a.priority === 'value')
+        match: (a) => a.budget === 'mid' && a.os !== 'mac' && (a.use === 'everyday' || a.priority === 'build')
       },
       {
         id: 'hp_victus15',
         name: 'HP Victus 15',
         tagline: 'Budget Gaming Beast',
         price: '~$599',
+        priceNum: 599,
         stars: '4.5 ⭐',
         specs: ['AMD Ryzen 7 / RTX 4050', '16GB RAM · 512GB SSD', '15.6" FHD 144Hz', 'Windows 11'],
-        pros: ['Dedicated RTX 4050 GPU', '144Hz display', '16GB RAM standard'],
-        cons: ['Shorter battery life', 'Gets warm under load'],
-        badge: '🎮 Best Gaming',
+        pros: ['RTX 4050 GPU', '144Hz display', '16GB RAM standard'],
+        cons: ['Shorter battery', 'Runs warm under load'],
+        badge: '🎮 Best Budget Gaming',
         color: 'red',
+        os: 'windows',
+        tier: 'mid',
         link: 'https://www.amazon.com/HP-Victus-Processor-Keyboard-Bluetooth/dp/B0G5HJTNYC?tag=laptopquiz0-20',
-        match: (a) => a.use === 'gaming'
+        match: (a) => a.use === 'gaming' && (a.budget === 'low' || a.budget === 'mid')
       },
       {
         id: 'lenovo_flex5',
         name: 'Lenovo IdeaPad Flex 5',
-        tagline: 'The Ultimate 2-in-1 Flex',
+        tagline: 'The 2-in-1 Flexible Choice',
         price: '~$549',
+        priceNum: 549,
         stars: '4.4 ⭐',
         specs: ['AMD Ryzen 5 5500U', '16GB RAM · 512GB SSD', '14" FHD Touch + Stylus', 'Windows 11'],
-        pros: ['360° touchscreen', 'Stylus included', 'Compact and versatile'],
-        cons: ['14" screen smaller', 'No dedicated GPU'],
+        pros: ['360° touchscreen', 'Stylus included', 'Versatile and compact'],
+        cons: ['14" screen is smaller', 'No dedicated GPU'],
         badge: '🔄 Most Flexible',
         color: 'orange',
+        os: 'windows',
+        tier: 'mid',
         link: 'https://www.amazon.com/Lenovo-Display-Storage-Graphics-Graphite/dp/B09YWM1CM1?tag=laptopquiz0-20',
-        match: (a) => a.use === 'flex' || a.use === 'creative'
-      }
+        match: (a) => a.budget === 'mid' && a.use === 'flex' && a.os !== 'mac'
+      },
+      // --- HIGH TIER ---
+      {
+        id: 'macbook_air_m4',
+        name: 'MacBook Air M4',
+        tagline: 'Best Laptop for Most People',
+        price: '~$1099',
+        priceNum: 1099,
+        stars: '4.8 ⭐',
+        specs: ['Apple M4 chip', '16GB unified memory', '13" Liquid Retina', 'macOS — 18+ hr battery'],
+        pros: ['Exceptional battery life (18hr+)', 'Silent — completely fanless', 'Outstanding display', 'Best-in-class performance/watt'],
+        cons: ['macOS only', 'No dedicated GPU', 'Limited port selection'],
+        badge: '🏆 Best Overall Laptop',
+        color: 'slate',
+        os: 'mac',
+        tier: 'high',
+        link: 'https://www.amazon.com/Apple-2025-MacBook-13-inch-Laptop/dp/B0DZDC3WW5?tag=laptopquiz0-20',
+        match: (a) => a.os !== 'windows' && (a.budget === 'high' || a.budget === 'ultra') && a.use !== 'gaming' && a.priority === 'battery'
+      },
+      {
+        id: 'thinkpad_x1',
+        name: 'Lenovo ThinkPad X1 Carbon',
+        tagline: 'The Business Premium Standard',
+        price: '~$1299',
+        priceNum: 1299,
+        stars: '4.7 ⭐',
+        specs: ['Intel Core Ultra 7', '16GB RAM · 512GB SSD', '14" IPS · Ultra-light', 'Windows 11 Pro'],
+        pros: ['Legendary build quality', 'Lightest in class (2.48 lbs)', 'Excellent keyboard', 'Long battery life'],
+        cons: ['No dedicated GPU', 'Premium price for the spec'],
+        badge: '💼 Best Business Laptop',
+        color: 'gray',
+        os: 'windows',
+        tier: 'high',
+        link: 'https://www.amazon.com/Lenovo-21KC00A8US-Thinkpad-G12intel-6416-0gb1x512gb/dp/B0D383G3HP?tag=laptopquiz0-20',
+        match: (a) => a.os !== 'mac' && (a.budget === 'high' || a.budget === 'ultra') && (a.priority === 'build' || a.priority === 'battery') && a.use !== 'gaming'
+      },
+      {
+        id: 'dell_xps15',
+        name: 'Dell XPS 15',
+        tagline: 'Premium Windows at Its Best',
+        price: '~$1299',
+        priceNum: 1299,
+        stars: '4.6 ⭐',
+        specs: ['Intel Core Ultra 7', '16GB RAM · 512GB SSD', '15.6" OLED Touchscreen', 'Windows 11'],
+        pros: ['Stunning OLED display', 'Premium aluminum build', 'Excellent for creative work', 'Good GPU options'],
+        cons: ['Shorter battery under load', 'Runs warm during heavy tasks'],
+        badge: '🖼️ Best Windows Display',
+        color: 'blue',
+        os: 'windows',
+        tier: 'high',
+        link: 'https://www.amazon.com/Dell-Previously-Performance-Touchscreen-Fingerprint/dp/B0G4BBY58X?tag=laptopquiz0-20',
+        match: (a) => a.os !== 'mac' && (a.budget === 'high' || a.budget === 'ultra') && (a.priority === 'display' || a.use === 'creative')
+      },
+      {
+        id: 'asus_rog_g16',
+        name: 'ASUS ROG Zephyrus G16',
+        tagline: 'High-End Gaming Without the Bulk',
+        price: '~$1499',
+        priceNum: 1499,
+        stars: '4.7 ⭐',
+        specs: ['AMD Ryzen AI 9 HX + RTX 4070', '16GB RAM · 1TB SSD', '16" QHD+ 240Hz', 'Windows 11'],
+        pros: ['RTX 4070 — serious GPU', '240Hz display', 'Surprisingly slim for gaming', 'Top-tier CPU'],
+        cons: ['Battery drains fast under gaming load', 'Premium price'],
+        badge: '🎮 Best Premium Gaming',
+        color: 'red',
+        os: 'windows',
+        tier: 'high',
+        link: 'https://www.amazon.com/ASUS-ROG-Zephyrus-G16-370/dp/B0DP5HY1W3?tag=laptopquiz0-20',
+        match: (a) => a.use === 'gaming' && (a.budget === 'high' || a.budget === 'ultra') && a.os !== 'mac'
+      },
+      // --- ULTRA TIER ---
+      {
+        id: 'macbook_pro_m5',
+        name: 'MacBook Pro 14" M5',
+        tagline: 'The Pro Creative Powerhouse',
+        price: '~$1599',
+        priceNum: 1599,
+        stars: '4.9 ⭐',
+        specs: ['Apple M5 chip (10-core)', '24GB unified memory', '14.2" Liquid Retina XDR', 'macOS — 18hr battery'],
+        pros: ['Best performance per watt on any laptop', 'Exceptional Liquid Retina XDR display', 'ProRes video support', 'Active cooling — sustained performance'],
+        cons: ['macOS only', 'Price', 'Not for gaming'],
+        badge: '👑 Best Pro Workstation',
+        color: 'slate',
+        os: 'mac',
+        tier: 'ultra',
+        link: 'https://www.amazon.com/Apple-2025-MacBook-Laptop-10%E2%80%91core/dp/B0FWD623D1?tag=laptopquiz0-20',
+        match: (a) => a.os !== 'windows' && a.budget === 'ultra' && (a.use === 'creative' || a.use === 'dev' || a.priority === 'performance')
+      },
+      {
+        id: 'razer_blade15',
+        name: 'Razer Blade 15',
+        tagline: 'No-Compromise Gaming & Creative',
+        price: '~$2499',
+        priceNum: 2499,
+        stars: '4.6 ⭐',
+        specs: ['Intel Core i9 + RTX 4070', '16GB RAM · 1TB SSD', '15.6" QHD 240Hz', 'Windows 11'],
+        pros: ['Stunning build quality — feels like a MacBook', 'RTX 4070 full power', '240Hz display', 'Handles creative + gaming equally'],
+        cons: ['Very expensive', 'Battery life average', 'Runs hot under load'],
+        badge: '⚡ Best Premium Windows Beast',
+        color: 'red',
+        os: 'windows',
+        tier: 'ultra',
+        link: 'https://www.amazon.com/Razer-Blade-Gaming-Laptop-Thunderbolt/dp/B0BTQLKPYD?tag=laptopquiz0-20',
+        match: (a) => a.budget === 'ultra' && a.os !== 'mac' && (a.use === 'gaming' || a.priority === 'performance')
+      },
     ];
 
     const colorMap = {
       indigo: { bg: 'bg-indigo-50', border: 'border-indigo-400', btn: 'bg-indigo-600 hover:bg-indigo-700', badge: 'bg-indigo-100 text-indigo-700' },
-      green: { bg: 'bg-green-50', border: 'border-green-400', btn: 'bg-green-600 hover:bg-green-700', badge: 'bg-green-100 text-green-700' },
+      green:  { bg: 'bg-green-50',  border: 'border-green-400',  btn: 'bg-green-600 hover:bg-green-700',  badge: 'bg-green-100 text-green-700' },
       purple: { bg: 'bg-purple-50', border: 'border-purple-400', btn: 'bg-purple-600 hover:bg-purple-700', badge: 'bg-purple-100 text-purple-700' },
-      blue: { bg: 'bg-blue-50', border: 'border-blue-400', btn: 'bg-blue-600 hover:bg-blue-700', badge: 'bg-blue-100 text-blue-700' },
-      red: { bg: 'bg-red-50', border: 'border-red-400', btn: 'bg-red-600 hover:bg-red-700', badge: 'bg-red-100 text-red-700' },
+      blue:   { bg: 'bg-blue-50',   border: 'border-blue-400',   btn: 'bg-blue-600 hover:bg-blue-700',   badge: 'bg-blue-100 text-blue-700' },
+      red:    { bg: 'bg-red-50',    border: 'border-red-400',    btn: 'bg-red-600 hover:bg-red-700',    badge: 'bg-red-100 text-red-700' },
       orange: { bg: 'bg-orange-50', border: 'border-orange-400', btn: 'bg-orange-600 hover:bg-orange-700', badge: 'bg-orange-100 text-orange-700' },
+      slate:  { bg: 'bg-slate-50',  border: 'border-slate-500',  btn: 'bg-slate-700 hover:bg-slate-800', badge: 'bg-slate-200 text-slate-700' },
+      gray:   { bg: 'bg-gray-50',   border: 'border-gray-400',   btn: 'bg-gray-700 hover:bg-gray-800',  badge: 'bg-gray-200 text-gray-700' },
     };
 
     let current = 0;
@@ -285,28 +416,76 @@
       if (current > 0) { current--; renderQuestion(); }
     }
 
+    function scoreMatch(laptop, a) {
+      let score = 0;
+
+      // Hard OS filter — Mac users don't see Windows and vice versa (but 'any' sees both)
+      if (a.os === 'mac' && laptop.os === 'windows') return -1;
+      if (a.os === 'windows' && laptop.os === 'mac') return -1;
+
+      // Budget fit
+      const budgetMax = { low: 650, mid: 900, high: 1500, ultra: 9999 };
+      if (laptop.priceNum <= budgetMax[a.budget]) score += 4;
+      else score -= 3; // over budget is bad
+
+      // Use case match
+      const useScore = {
+        everyday: { lenovo_ideapad3: 3, acer_aspire5: 3, dell_inspiron15: 4, thinkpad_x1: 5, macbook_air_m4: 4 },
+        gaming:   { hp_victus15: 5, asus_rog_g16: 5, razer_blade15: 5 },
+        creative: { dell_xps15: 4, macbook_air_m4: 4, macbook_pro_m5: 5, razer_blade15: 3 },
+        dev:      { macbook_air_m4: 4, macbook_pro_m5: 5, thinkpad_x1: 4, dell_xps15: 3 },
+        flex:     { lenovo_flex5: 5, macbook_air_m4: 4, dell_xps15: 3 },
+      };
+      score += (useScore[a.use] || {})[laptop.id] || 0;
+
+      // Priority
+      const prioScore = {
+        value:       { lenovo_ideapad3: 3, acer_aspire5: 3, asus_vivobook16: 3, hp_victus15: 2 },
+        performance: { macbook_pro_m5: 5, razer_blade15: 4, asus_rog_g16: 4, macbook_air_m4: 3 },
+        battery:     { macbook_air_m4: 5, macbook_pro_m5: 4, thinkpad_x1: 4, lenovo_flex5: 3 },
+        display:     { dell_xps15: 5, macbook_pro_m5: 5, macbook_air_m4: 4, asus_rog_g16: 3 },
+        build:       { thinkpad_x1: 5, macbook_air_m4: 4, macbook_pro_m5: 4, dell_xps15: 3, razer_blade15: 4 },
+      };
+      score += (prioScore[a.priority] || {})[laptop.id] || 0;
+
+      // Screen size
+      const smallLaptops = ['macbook_air_m4', 'macbook_pro_m5', 'thinkpad_x1', 'lenovo_flex5'];
+      const largeLaptops = ['asus_vivobook16', 'dell_inspiron15', 'hp_victus15', 'dell_xps15', 'asus_rog_g16', 'razer_blade15'];
+      if (a.screen === 'small' && smallLaptops.includes(laptop.id)) score += 2;
+      if (a.screen === 'large' && largeLaptops.includes(laptop.id)) score += 2;
+
+      return score;
+    }
+
     function showResult() {
       document.getElementById('quiz').classList.add('hidden');
 
-      // Find best match
+      // Try exact match first
       let matched = laptops.find(l => l.match(answers));
+
+      // Fall back to scoring if no exact match
       if (!matched) {
-        // Fallback scoring
-        const scores = laptops.map(l => {
-          let s = 0;
-          if (answers.budget === 'low' && parseInt(l.price.replace(/\D/g,'')) <= 450) s += 3;
-          if (answers.budget === 'mid' && parseInt(l.price.replace(/\D/g,'')) <= 550) s += 3;
-          if (answers.budget === 'high') s += 1;
-          if (answers.use === 'gaming' && l.id === 'hp_victus15') s += 5;
-          if (answers.use === 'flex' && l.id === 'lenovo_flex5') s += 5;
-          return { l, s };
-        });
-        matched = scores.sort((a, b) => b.s - a.s)[0].l;
+        const scored = laptops
+          .map(l => ({ l, s: scoreMatch(l, answers) }))
+          .filter(x => x.s >= 0)
+          .sort((a, b) => b.s - a.s);
+        matched = scored[0]?.l || laptops[0];
       }
 
-      const c = colorMap[matched.color];
+      const c = colorMap[matched.color] || colorMap.indigo;
       const resultEl = document.getElementById('result');
       resultEl.classList.remove('hidden');
+
+      // Alternatives: different laptops, correct OS filter, top 3 by score excluding matched
+      const alternatives = laptops
+        .filter(l => l.id !== matched.id)
+        .filter(l => answers.os === 'windows' ? l.os !== 'mac' : answers.os === 'mac' ? l.os !== 'windows' : true)
+        .map(l => ({ l, s: scoreMatch(l, answers) }))
+        .filter(x => x.s >= 0)
+        .sort((a, b) => b.s - a.s)
+        .slice(0, 3)
+        .map(x => x.l);
+
       resultEl.innerHTML = `
         <div class="fade-in">
           <div class="text-center mb-6">
@@ -351,10 +530,11 @@
             <p class="text-xs text-center text-slate-400 mt-2">Amazon link · As low as ${matched.price} · Free returns</p>
           </div>
 
+          ${alternatives.length > 0 ? `
           <div class="bg-white rounded-xl border border-slate-200 p-4 mb-6">
-            <p class="text-sm font-semibold text-slate-700 mb-3">Also consider these options:</p>
+            <p class="text-sm font-semibold text-slate-700 mb-3">Also consider:</p>
             <div class="grid gap-2">
-              ${laptops.filter(l => l.id !== matched.id).slice(0,3).map(l => `
+              ${alternatives.map(l => `
                 <a href="${l.link}" target="_blank" rel="noopener"
                   onclick="gtag('event', 'affiliate_click', { event_category: 'secondary', event_label: '${l.id}' })"
                   class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 border border-slate-100 transition-all">
@@ -367,6 +547,7 @@
               `).join('')}
             </div>
           </div>
+          ` : ''}
 
           <div class="text-center">
             <button onclick="restartQuiz()" class="text-indigo-600 hover:text-indigo-800 text-sm underline">↺ Take the quiz again</button>
